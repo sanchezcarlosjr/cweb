@@ -1,21 +1,20 @@
 [![Project generated with PyScaffold](https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold)](https://pyscaffold.org/)
-<!-- These are examples of badges you might also want to add to your README. Update the URLs accordingly.
-[![Built Status](https://api.cirrus-ci.com/github/<USER>/cWeb.svg?branch=main)](https://cirrus-ci.com/github/<USER>/cWeb)
-[![ReadTheDocs](https://readthedocs.org/projects/cWeb/badge/?version=latest)](https://cWeb.readthedocs.io/en/stable/)
-[![Coveralls](https://img.shields.io/coveralls/github/<USER>/cWeb/main.svg)](https://coveralls.io/r/<USER>/cWeb)
 [![PyPI-Server](https://img.shields.io/pypi/v/cWeb.svg)](https://pypi.org/project/cWeb/)
-[![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/cWeb.svg)](https://anaconda.org/conda-forge/cWeb)
-[![Monthly Downloads](https://pepy.tech/badge/cWeb/month)](https://pepy.tech/project/cWeb)
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/cWeb)
--->
 
 # cWeb
 
-> Add a short description here!
+> The client for web renders web pages and transforms them into whatever format you need.
 
-A longer description of your project goes here...
+## CLI Installation
+```
+   pip install cWeb
+```
 
-## Installation
+```
+   cWeb https://sanchezcarlosjr.notion.site/Learn-to-make-cool-ideas-here-d80df9eb663f440aa8076c6422c54a93?pvs=4
+```
+
+## Full Installation
 
 In order to set up the necessary environment:
 

@@ -1,13 +1,12 @@
-from cweb import __version__
+from typing_extensions import Annotated
+
+from cweb import __version__, fetch, generate_pdf
 
 __author__ = "sanchezcarlosjr"
 __copyright__ = "sanchezcarlosjr"
 __license__ = "MIT"
 
-
 from cweb import setup_logging, _logger
-from cweb.webservice import WebService, serve
-import ray
 
 # ---- CLI ----
 # The functions defined in this section are wrappers around the main Python
@@ -17,7 +16,8 @@ import ray
 import typer
 from typing import Optional
 
-app = typer.Typer()
+app = typer.Typer(help="The client for web renders web pages and transforms them into whatever format you need.")
+
 
 @app.command()
 def version():
@@ -25,31 +25,21 @@ def version():
 
 
 @app.command()
-def run_webapp(share=False):
+def html(url: Annotated[str, typer.Argument()]):
+    print(fetch(url))
+
+
+@app.command()
+def pdf(url: Annotated[str, typer.Argument()], path: Annotated[str, typer.Argument()]):
+    generate_pdf(url, path)
+
+
+@app.command()
+def webapp(share=False):
     _logger.info("Starting webapp..")
     from cweb.webapp import webapp
     webapp.launch(share)
 
 
-@app.command()
-def run_webservice():
-    """
-    The command initiates the webservice and maintains it in the background. Additionally,
-    this command is used to update the service.
-    """
-    _logger.info("Starting webservice...")
-    ray.init()
-    serve.run(WebService.bind(), route_prefix="/hello")
-
-def main(verbose: Optional[int] = typer.Option(0, '--verbose', '-v', count=True,
-                                               help="Increase verbosity by augmenting the count of 'v's, and enhance "
-                                                    "the total number of messages.")):
-    setup_logging(verbose*10)
-    app()
-
 def run():
     app()
-
-
-if __name__ == "__main__":
-    typer.run(app)

@@ -13,12 +13,11 @@ dependencies:
   - pandas
   - pystow
   - tqdm
-  - click
   - ipython
   # VISUALIZATION
-  - matplotlib
-  - ipympl  # interactive matplotlib plots
-  - seaborn
+  # - matplotlib
+  # - ipympl  # interactive matplotlib plots
+  # - seaborn
   # - altair
   # - yellowbrick
   # ML, STATS & DEEP LEARNING
